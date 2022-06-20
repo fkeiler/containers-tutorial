@@ -47,13 +47,13 @@ function TodoListCard() {
         [items],
     );
 
-    if (items === null) return 'Loading...';
+    if (items === null) return 'Carregando...';
 
     return (
         <React.Fragment>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
-                <p className="text-center">No items yet! Add one above!</p>
+                <p className="text-center">Sem items! Utilize o input acima para adicionar!</p>
             )}
             {items.map(item => (
                 <ItemDisplay
@@ -96,7 +96,7 @@ function AddItemForm({ onNewItem }) {
                     value={newItem}
                     onChange={e => setNewItem(e.target.value)}
                     type="text"
-                    placeholder="New Item"
+                    placeholder="Conteúdo do Item"
                     aria-describedby="basic-addon1"
                 />
                 <InputGroup.Append>
@@ -104,9 +104,9 @@ function AddItemForm({ onNewItem }) {
                         type="submit"
                         variant="success"
                         disabled={!newItem.length}
-                        className={submitting ? 'disabled' : ''}
+                        className={submitting ? 'disabled' : 'secondary'}
                     >
-                        {submitting ? 'Adding...' : 'Add Item'}
+                        {submitting ? 'Adicionando...' : 'Adicionar Item'}
                     </Button>
                 </InputGroup.Append>
             </InputGroup>
